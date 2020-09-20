@@ -8,7 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class BellsTime extends AppCompatActivity {
-    private TextView firstPair, secondPair, thirdPair, fourthPair, fifthPair, sixthPair;
+    private TextView firstLesson, secondLesson, thirdLesson, fourthLesson, fifthLesson, sixthLesson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,45 +17,19 @@ public class BellsTime extends AppCompatActivity {
 
         initTVs();
 
-        firstPair.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showTime("8:30 - 10:05");
-            }
-        });
+        setOnClickListener(firstLesson, "8:30 - 9:15\n9:20 - 10:05");
+        setOnClickListener(secondLesson, "10:15 - 11:00\n11:05 - 11:50");
+        setOnClickListener(thirdLesson, "12:20 - 13:05\n13:10 - 13:55");
+        setOnClickListener(fourthLesson, "14:10 - 15:20");
+        setOnClickListener(fifthLesson, "15:30 - 16:40");
+        setOnClickListener(sixthLesson, "16:50 - 18:00");
+    }
 
-        secondPair.setOnClickListener(new View.OnClickListener() {
+    private void setOnClickListener(TextView lesson, final String time) {
+        lesson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showTime("10:15 - 11:50");
-            }
-        });
-
-        thirdPair.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showTime("12:20 - 13:55");
-            }
-        });
-
-        fourthPair.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showTime("14:05 - 15:40");
-            }
-        });
-
-        fifthPair.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showTime("15:50 - 17:20");
-            }
-        });
-
-        sixthPair.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showTime("17:30 - 19:05");
+                showTime(time);
             }
         });
     }
@@ -65,11 +39,11 @@ public class BellsTime extends AppCompatActivity {
     }
 
     private void initTVs() {
-        firstPair = findViewById(R.id.tv_firstPair);
-        secondPair = findViewById(R.id.tv_secondPair);
-        thirdPair = findViewById(R.id.tv_thirdPair);
-        fourthPair = findViewById(R.id.tv_fourthPair);
-        fifthPair = findViewById(R.id.tv_fifthPair);
-        sixthPair = findViewById(R.id.tv_sixthPair);
+        firstLesson = findViewById(R.id.tv_firstPair);
+        secondLesson = findViewById(R.id.tv_secondPair);
+        thirdLesson = findViewById(R.id.tv_thirdPair);
+        fourthLesson = findViewById(R.id.tv_fourthPair);
+        fifthLesson = findViewById(R.id.tv_fifthPair);
+        sixthLesson = findViewById(R.id.tv_sixthPair);
     }
 }
